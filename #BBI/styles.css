@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    display: flex;
+    height: 100vh;
+    color: #333;
+    background-color: #f4f7fc;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #063469;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo-section {
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-title {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .sub-title {
+    color: #ddd;
+    font-size: 0.9em;
+  }
+  
+  /* Sidebar menu style */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .menu-link.active {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
+  .menu-link:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .arrow {
+    transition: transform 0.3s;
+  }
+  
+  .dropdown .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .dropdown .submenu li {
+    margin-bottom: 5px;
+  }
+  
+  .dropdown .submenu li a {
+    display: block;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown .submenu li a:hover {
+    background-color: #d9edf7;
+  }
+  
+  .dropdown:hover .submenu {
+    display: block;
+  }
+  
+  .dropdown:hover .arrow {
+    transform: rotate(90deg);
+  }
+  
+  .submenu li a {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 0.9em;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .submenu li a:hover {
+    background-color: #d9edf7;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #e6f0ff, #0066cc);
+    color: #fff;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #ffffff;
+    height: 100px;
+  }
+  
+  .large-logo {
+    max-height: 200px;
+    width: auto;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  
+  .user-profile .icon {
+    margin-right: 8px;
+    color: #5a5a5a;
+  }
+  
+  /* WELCOME SECTION */
+  .welcome-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+    padding: 50px 20px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .welcome-section p {
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+  
+  /* FOOTER */
+  footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+  }
+  
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-left {
+    flex: 1;
+  }
+  
+  .footer-center {
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-right {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  .footer-right .contact-info p {
+    margin: 2px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-icon {
+    color: #fff;
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    color: #188DDD;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .contact-info p:first-child {
+    font-weight: bold;
+  }
+  
