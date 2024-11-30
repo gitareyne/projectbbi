@@ -141,8 +141,9 @@
   }
   
   .large-logo {
-    max-height: 200px;
-    width: auto;
+    margin-bottom: 30px;
+    height: auto;
+    width: 150px;
   }
   
   .user-profile {
