@@ -4,43 +4,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const berandaSection = document.getElementById('berandaSection');
     const branchSection = document.getElementById('branchSection');
     const branchTitle = document.getElementById('branchTitle');
+    const branchAddress = document.getElementById('branchAddress');
     const branchPieChartElement = document.getElementById('branchPieChart');
     const chartContainer = document.querySelector('.chart-container');
     const dataTable = document.getElementById('dataTable');
     const searchInput = document.getElementById("searchInput");
     let pieChart;
 
-    // Fungsi untuk menampilkan/menyembunyikan bagian cabang dan tabel/pie chart
+    // Fungsi untuk toggle tampilan chart dan dataTable
     function toggleBranchSection() {
         chartContainer.style.display = chartContainer.style.display === 'none' ? 'block' : 'none';
         dataTable.style.display = dataTable.style.display === 'none' ? 'block' : 'none';
     }
 
-    // Event listener untuk beranda
+    // Event Listener untuk tombol Beranda
     berandaLink.addEventListener('click', (e) => {
         e.preventDefault();
-        // Kembali ke beranda: sembunyikan cabang, tabel, dan chart
+        // Menampilkan Beranda dan menyembunyikan Cabang
         berandaSection.classList.remove('hidden');
         branchSection.classList.add('hidden');
-        chartContainer.style.display = 'none';  // Sembunyikan chart
-        dataTable.style.display = 'none';       // Sembunyikan tabel
+        chartContainer.style.display = 'none';
+        dataTable.style.display = 'none';
     });
 
-    // Event listener untuk link cabang
     branchLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+    
+            // Ambil data cabang dari atribut
             const branchName = link.getAttribute('data-branch');
+            const branchLocation = link.getAttribute('data-address');
+    
+            // Set nama dan alamat cabang
+            branchTitle.textContent = branchName; // Nama cabang
+            branchAddress.textContent = branchLocation; // Alamat cabang
+    
+            // Tampilkan cabang, sembunyikan beranda
             berandaSection.classList.add('hidden');
             branchSection.classList.remove('hidden');
-            branchTitle.textContent = `Cabang: ${branchName}`;
-
-            // Hapus chart sebelumnya jika ada
+    
+            // Sembunyikan header (logo dan admin)
+            document.getElementById('mainHeader').style.display = 'none';
+    
+            // Hancurkan chart lama jika ada
             if (pieChart) {
                 pieChart.destroy();
             }
-
-            // Buat chart baru
+    
             pieChart = new Chart(branchPieChartElement.getContext('2d'), {
                 type: 'pie',
                 data: {
@@ -51,22 +61,43 @@ document.addEventListener('DOMContentLoaded', () => {
                     }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: true, 
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: 'bottom'
+                            position: 'right', // Pindahkan legenda ke kanan
+                            labels: {
+                                boxWidth: 20, // Lebar kotak warna di legenda
+                                padding: 10 // Jarak antara legenda dan teks
+                            }
                         }
                     }
                 }
             });
-
-            // Tampilkan tabel dan pie chart
+            
+            // Tampilkan Chart dan DataTable
             chartContainer.style.display = 'block';
             dataTable.style.display = 'block';
         });
     });
-
-    // Fungsi untuk mencari nama di tabel
+    
+    // Tampilkan kembali header saat kembali ke beranda
+    document.getElementById('backToBerandaLink').addEventListener('click', (e) => {
+        e.preventDefault();
+    
+        // Tampilkan beranda, sembunyikan cabang
+        berandaSection.classList.remove('hidden');
+        branchSection.classList.add('hidden');
+    
+        // Tampilkan kembali header (logo dan admin)
+        document.getElementById('mainHeader').style.display = 'flex';
+    
+        // Sembunyikan chart dan data table
+        chartContainer.style.display = 'none';
+        dataTable.style.display = 'none';
+    });
+    
+    // Fungsi pencarian dalam tabel
     function searchTable() {
         const input = searchInput.value.toLowerCase();
         const table = document.getElementById("dataTable");
@@ -88,28 +119,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event listener untuk search bar
     if (searchInput) {
         searchInput.addEventListener('keyup', searchTable);
     }
 
-    // Sembunyikan tabel dan pie chart pada saat pertama kali
+    // Menyembunyikan chart dan data table di awal
     chartContainer.style.display = 'none';
     dataTable.style.display = 'none';
 
-    // Mengatur tampilan awal pada beranda
-    const searchBarContainer = document.querySelector('.search-bar-container'); // Container untuk search bar
-    searchBarContainer.classList.add('hidden');  // Sembunyikan di beranda
-
-    // Event listener untuk kembali ke Beranda
+    // Back to Beranda (tombol untuk kembali ke beranda)
     const backToBerandaLink = document.getElementById("backToBerandaLink");
     if (backToBerandaLink) {
         backToBerandaLink.addEventListener('click', (e) => {
             e.preventDefault();
+            // Kembali ke beranda
             berandaSection.classList.remove('hidden');
             branchSection.classList.add('hidden');
-            chartContainer.style.display = 'none';  // Sembunyikan chart
-            dataTable.style.display = 'none';       // Sembunyikan tabel
+            chartContainer.style.display = 'none';
+            dataTable.style.display = 'none';
         });
     }
 });
