@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  color: #333;
+  background-color: #f4f7fc;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #063469;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-section {
+  margin-bottom: 30px;
+}
+
+.dashboard-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.sub-title {
+  color: #ddd;
+  font-size: 0.9em;
+}
+
+/* Sidebar menu style */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-item {
+  margin-bottom: 10px;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.menu-link.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.menu-link:hover {
+  background-color: #e6e6e6;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.dropdown .submenu {
+  display: none;
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.dropdown .submenu li {
+  margin-bottom: 5px;
+}
+
+.dropdown .submenu li a {
+  display: block;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.dropdown .submenu li a:hover {
+  background-color: #d9edf7;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(90deg);
+}
+
+.dropdown .submenu {
+  display: none;
+}
+.dropdown.active .submenu {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 8px 10px;
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.submenu li a:hover {
+  background-color: #d9edf7;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #e6f0ff, #0066cc);
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #ffffff;
+  height: 100px;
+}
+
+.large-logo {
+  max-height: 200px;
+  width: auto;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  padding: 5px 15px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.user-profile .icon {
+  margin-right: 8px;
+  color: #5a5a5a;
+}
+
+.welcome-section {
+  text-align: left; /* Buat teks rata tengah secara horizontal */
+  padding: 100px 20px 50px; /* Tambahkan spasi atas, samping, dan bawah */
+}
+
+.welcome-section h1 {
+  font-size: 3rem; /* Perbesar ukuran font untuk judul utama */
+  font-weight: bold; /* Buat teks tebal */
+  color: #ffffff; /* Warna biru gelap */
+  margin-bottom: 10px; /* Spasi bawah untuk judul */
+}
+
+.welcome-section p {
+  font-size: 1.5rem; /* Ukuran font untuk teks pendukung */
+  color: #ffffff; /* Warna biru lebih cerah */
+  margin: 5px 0; /* Spasi antar teks pendukung */
+}
+
+.hidden {
+  display: none;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center; /* Membuat elemen di dalamnya berada di tengah secara horizontal */
+  align-items: center; /* Membuat elemen di dalamnya berada di tengah secara vertikal */
+  flex-direction: column; /* Menyusun chart dan legend secara vertikal */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#branchPieChart {
+  max-width: 300px; /* Batasi lebar maksimum untuk memastikan responsif */
+  max-height: 300px; /* Batasi tinggi maksimum */
+}
+
+.chart-container .legend-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px; /* Tambahkan jarak antara chart dan legend */
+}
+
+footer {
+  background-color: #000; 
+  color: white;
+  text-align: center; 
+  padding: 10px 20px;
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
+  margin-top: auto;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.footer-center .social-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer-center .social-icon {
+  margin: 0 10px;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-right {
+  flex: 1;
+  text-align: right;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #188DDD;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.contact-info p:first-child {
+  font-weight: bold;
+}
+
+.siswa-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.siswa-card {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
